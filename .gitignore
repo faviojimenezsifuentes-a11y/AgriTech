@@ -1,0 +1,17 @@
+**/__pycache__/
+**/*.py[cod]
+**/*.cache
+**/.claude/
+**/claude/
+**/.env
+**/.env.*
+**/*.sqlite3
+**/*.zip
+**/*.tar.gz
+mvp/data/
+mvp/runs/
+mvp/training_data/**/images/
+mvp/training_data/**/labels/
+mvp/dataset_candidates/**/images/
+mvp/dataset_candidates/**/review/
+mvp/training_runs/**/weights/

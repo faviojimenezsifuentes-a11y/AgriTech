@@ -1,0 +1,23 @@
+[Unit]
+Description=Vigia Esparrago MVP
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+Group=www-data
+WorkingDirectory=/opt/esparragos
+Environment=PYTHONUNBUFFERED=1
+Environment=XDG_CONFIG_HOME=/opt/esparragos/data
+Environment=SE_CACHE_PATH=/opt/esparragos/data/selenium-cache
+Environment=HOME=/opt/esparragos/data
+ExecStart=/opt/esparragos/.venv/bin/python -m gunicorn --bind 127.0.0.1:8016 --workers 1 --threads 2 --timeout 90 --access-logfile - --error-logfile - app:app
+Restart=always
+RestartSec=5
+NoNewPrivileges=true
+ProtectSystem=full
+PrivateTmp=true
+ReadWritePaths=/opt/esparragos/data
+
+[Install]
+WantedBy=multi-user.target

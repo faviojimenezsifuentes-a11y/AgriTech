@@ -1,0 +1,700 @@
+{
+  "seed": 20261013,
+  "teacher": "C:\\Users\\ANGIE\\Downloads\\esparragos-mvp-mejorado\\models\\esparragos_yolov8n_v2.pt",
+  "pseudo_label_confidence_min": 0.35,
+  "external_train_candidates": 64,
+  "external_pseudo_labeled": 44,
+  "external_holdout": 32,
+  "pseudo_by_class": {
+    "0": 4,
+    "1": 11,
+    "2": 10,
+    "3": 3,
+    "5": 6,
+    "6": 10
+  },
+  "holdout_by_class": {
+    "0": 6,
+    "1": 6,
+    "2": 6,
+    "3": 2,
+    "5": 6,
+    "6": 6
+  },
+  "warning": "Las cajas son propuestas de YOLOv8 V2 sin revisión humana; la clase y el hospedero no han sido verificados en campo. El test agrupado previo pasó a entrenamiento y ya no se usa como prueba.",
+  "accepted": [
+    {
+      "image_file": "images/0_Chloridea_virescens_adulto/inat_15898118_23774334.jpg",
+      "training_name": "inat_23774334.jpg",
+      "class_id": 0,
+      "boxes": 1,
+      "source_url": "https://www.inaturalist.org/observations/15898118",
+      "license": "CC-BY",
+      "attribution": "(c) Zihao Wang, some rights reserved (CC BY)"
+    },
+    {
+      "image_file": "images/0_Chloridea_virescens_adulto/inat_29387519_45861859.jpg",
+      "training_name": "inat_45861859.jpg",
+      "class_id": 0,
+      "boxes": 1,
+      "source_url": "https://www.inaturalist.org/observations/29387519",
+      "license": "CC-BY",
+      "attribution": "(c) Tom Reed, some rights reserved (CC BY)"
+    },
+    {
+      "image_file": "images/0_Chloridea_virescens_adulto/inat_34288324_53944394.jpg",
+      "training_name": "inat_53944394.jpg",
+      "class_id": 0,
+      "boxes": 1,
+      "source_url": "https://www.inaturalist.org/observations/34288324",
+      "license": "CC-BY",
+      "attribution": "(c) José Belem Hernández Díaz, some rights reserved (CC BY)"
+    },
+    {
+      "image_file": "images/0_Chloridea_virescens_adulto/inat_55314892_88071840.jpg",
+      "training_name": "inat_88071840.jpg",
+      "class_id": 0,
+      "boxes": 1,
+      "source_url": "https://www.inaturalist.org/observations/55314892",
+      "license": "CC0",
+      "attribution": "no rights reserved"
+    },
+    {
+      "image_file": "images/1_Chloridea_virescens_larva/inat_164876134_285329320.jpg",
+      "training_name": "inat_285329320.jpg",
+      "class_id": 1,
+      "boxes": 1,
+      "source_url": "https://www.inaturalist.org/observations/164876134",
+      "license": "CC-BY",
+      "attribution": "(c) Emily Geest, some rights reserved (CC BY)"
+    },
+    {
+      "image_file": "images/1_Chloridea_virescens_larva/inat_17579343_26762130.jpg",
+      "training_name": "inat_26762130.jpg",
+      "class_id": 1,
+      "boxes": 1,
+      "source_url": "https://www.inaturalist.org/observations/17579343",
+      "license": "CC-BY",
+      "attribution": "(c) Bill Keim, some rights reserved (CC BY)"
+    },
+    {
+      "image_file": "images/1_Chloridea_virescens_larva/inat_185845521_324648737.jpg",
+      "training_name": "inat_324648737.jpg",
+      "class_id": 1,
+      "boxes": 1,
+      "source_url": "https://www.inaturalist.org/observations/185845521",
+      "license": "CC-BY",
+      "attribution": "(c) Steven Joyner, some rights reserved (CC BY)"
+    },
+    {
+      "image_file": "images/1_Chloridea_virescens_larva/inat_30523372_47692331.jpg",
+      "training_name": "inat_47692331.jpg",
+      "class_id": 1,
+      "boxes": 1,
+      "source_url": "https://www.inaturalist.org/observations/30523372",
+      "license": "CC-BY",
+      "attribution": "(c) Steven Bodzin, some rights reserved (CC BY)"
+    },
+    {
+      "image_file": "images/1_Chloridea_virescens_larva/inat_31615240_49497033.jpg",
+      "training_name": "inat_49497033.jpg",
+      "class_id": 1,
+      "boxes": 1,
+      "source_url": "https://www.inaturalist.org/observations/31615240",
+      "license": "CC0",
+      "attribution": "no rights reserved"
+    },
+    {
+      "image_file": "images/1_Chloridea_virescens_larva/inat_32392483_50800912.jpg",
+      "training_name": "inat_50800912.jpg",
+      "class_id": 1,
+      "boxes": 1,
+      "source_url": "https://www.inaturalist.org/observations/32392483",
+      "license": "CC-BY",
+      "attribution": "(c) Healthy Yards, some rights reserved (CC BY)"
+    },
+    {
+      "image_file": "images/1_Chloridea_virescens_larva/inat_32547503_51059641.jpg",
+      "training_name": "inat_51059641.jpg",
+      "class_id": 1,
+      "boxes": 1,
+      "source_url": "https://www.inaturalist.org/observations/32547503",
+      "license": "CC0",
+      "attribution": "no rights reserved"
+    },
+    {
+      "image_file": "images/1_Chloridea_virescens_larva/inat_35473547_55939173.jpg",
+      "training_name": "inat_55939173.jpg",
+      "class_id": 1,
+      "boxes": 1,
+      "source_url": "https://www.inaturalist.org/observations/35473547",
+      "license": "CC-BY",
+      "attribution": "(c) Habib Rehman, some rights reserved (CC BY)"
+    },
+    {
+      "image_file": "images/1_Chloridea_virescens_larva/inat_63273187_101519321.jpg",
+      "training_name": "inat_101519321.jpg",
+      "class_id": 1,
+      "boxes": 1,
+      "source_url": "https://www.inaturalist.org/observations/63273187",
+      "license": "CC-BY",
+      "attribution": "(c) Blake Bringhurst, some rights reserved (CC BY)"
+    },
+    {
+      "image_file": "images/1_Chloridea_virescens_larva/inat_7192387_9273493.jpg",
+      "training_name": "inat_9273493.jpg",
+      "class_id": 1,
+      "boxes": 1,
+      "source_url": "https://www.inaturalist.org/observations/7192387",
+      "license": "CC0",
+      "attribution": "no rights reserved"
+    },
+    {
+      "image_file": "images/1_Chloridea_virescens_larva/inat_82942188_136174711.jpg",
+      "training_name": "inat_136174711.jpg",
+      "class_id": 1,
+      "boxes": 1,
+      "source_url": "https://www.inaturalist.org/observations/82942188",
+      "license": "CC-BY",
+      "attribution": "(c) Dan Scali, some rights reserved (CC BY)"
+    },
+    {
+      "image_file": "images/2_Chrysodeixis_includens_adulto/inat_1846685_2244401.jpg",
+      "training_name": "inat_2244401.jpg",
+      "class_id": 2,
+      "boxes": 1,
+      "source_url": "http://www.inaturalist.org/observations/1846685",
+      "license": "CC-BY",
+      "attribution": "(c) botanygirl, some rights reserved (CC BY)"
+    },
+    {
+      "image_file": "images/2_Chrysodeixis_includens_adulto/inat_2086018_2495387.jpg",
+      "training_name": "inat_2495387.jpg",
+      "class_id": 2,
+      "boxes": 1,
+      "source_url": "http://www.inaturalist.org/observations/2086018",
+      "license": "CC-BY",
+      "attribution": "(c) Bill Keim, some rights reserved (CC BY)"
+    },
+    {
+      "image_file": "images/2_Chrysodeixis_includens_adulto/inat_2454541_2743865.jpg",
+      "training_name": "inat_2743865.jpg",
+      "class_id": 2,
+      "boxes": 1,
+      "source_url": "http://www.inaturalist.org/observations/2454541",
+      "license": "CC-BY",
+      "attribution": "(c) Nick Block, some rights reserved (CC BY)"
+    },
+    {
+      "image_file": "images/2_Chrysodeixis_includens_adulto/inat_266444_330108.jpg",
+      "training_name": "inat_330108.jpg",
+      "class_id": 2,
+      "boxes": 1,
+      "source_url": "http://www.inaturalist.org/observations/266444",
+      "license": "CC-BY",
+      "attribution": "(c) Jon Sullivan, some rights reserved (CC BY)"
+    },
+    {
+      "image_file": "images/2_Chrysodeixis_includens_adulto/inat_3742794_4351104.jpg",
+      "training_name": "inat_4351104.jpg",
+      "class_id": 2,
+      "boxes": 1,
+      "source_url": "http://www.inaturalist.org/observations/3742794",
+      "license": "CC-BY",
+      "attribution": "(c) John P Friel, some rights reserved (CC BY)"
+    },
+    {
+      "image_file": "images/2_Chrysodeixis_includens_adulto/inat_3938852_4637388.jpg",
+      "training_name": "inat_4637388.jpg",
+      "class_id": 2,
+      "boxes": 1,
+      "source_url": "http://www.inaturalist.org/observations/3938852",
+      "license": "CC-BY",
+      "attribution": "(c) John P Friel, some rights reserved (CC BY)"
+    },
+    {
+      "image_file": "images/2_Chrysodeixis_includens_adulto/inat_4023723_4754201.jpg",
+      "training_name": "inat_4754201.jpg",
+      "class_id": 2,
+      "boxes": 1,
+      "source_url": "http://www.inaturalist.org/observations/4023723",
+      "license": "CC-BY",
+      "attribution": "(c) John P Friel, some rights reserved (CC BY)"
+    },
+    {
+      "image_file": "images/2_Chrysodeixis_includens_adulto/inat_4023734_4754312.jpg",
+      "training_name": "inat_4754312.jpg",
+      "class_id": 2,
+      "boxes": 1,
+      "source_url": "http://www.inaturalist.org/observations/4023734",
+      "license": "CC-BY",
+      "attribution": "(c) John P Friel, some rights reserved (CC BY)"
+    },
+    {
+      "image_file": "images/2_Chrysodeixis_includens_adulto/inat_4061696_4812428.jpg",
+      "training_name": "inat_4812428.jpg",
+      "class_id": 2,
+      "boxes": 1,
+      "source_url": "http://www.inaturalist.org/observations/4061696",
+      "license": "CC-BY",
+      "attribution": "(c) John P Friel, some rights reserved (CC BY)"
+    },
+    {
+      "image_file": "images/2_Chrysodeixis_includens_adulto/inat_4101603_4869900.jpg",
+      "training_name": "inat_4869900.jpg",
+      "class_id": 2,
+      "boxes": 1,
+      "source_url": "http://www.inaturalist.org/observations/4101603",
+      "license": "CC-BY",
+      "attribution": "(c) John P Friel, some rights reserved (CC BY)"
+    },
+    {
+      "image_file": "images/3_Chrysodeixis_includens_larva/inat_204232376_360965219.jpg",
+      "training_name": "inat_360965219.jpg",
+      "class_id": 3,
+      "boxes": 1,
+      "source_url": "https://www.inaturalist.org/observations/204232376",
+      "license": "CC-BY",
+      "attribution": "(c) IDClaire, some rights reserved (CC BY)"
+    },
+    {
+      "image_file": "images/3_Chrysodeixis_includens_larva/inat_301812144_543890033.jpg",
+      "training_name": "inat_543890033.jpg",
+      "class_id": 3,
+      "boxes": 1,
+      "source_url": "https://www.inaturalist.org/observations/301812144",
+      "license": "CC-BY",
+      "attribution": "(c) Chad King, some rights reserved (CC BY)"
+    },
+    {
+      "image_file": "images/3_Chrysodeixis_includens_larva/inat_47404856_75184633.jpg",
+      "training_name": "inat_75184633.jpg",
+      "class_id": 3,
+      "boxes": 1,
+      "source_url": "https://www.inaturalist.org/observations/47404856",
+      "license": "CC-BY",
+      "attribution": "(c) Lucas Rubio, some rights reserved (CC BY)"
+    },
+    {
+      "image_file": "images/5_Spodoptera_eridania_adulto/inat_1481445_1836328.jpg",
+      "training_name": "inat_1836328.jpg",
+      "class_id": 5,
+      "boxes": 1,
+      "source_url": "http://www.inaturalist.org/observations/1481445",
+      "license": "CC-BY",
+      "attribution": "(c) Donald Hobern, some rights reserved (CC BY)"
+    },
+    {
+      "image_file": "images/5_Spodoptera_eridania_adulto/inat_4981727_6083462.jpg",
+      "training_name": "inat_6083462.jpg",
+      "class_id": 5,
+      "boxes": 1,
+      "source_url": "https://www.inaturalist.org/observations/4981727",
+      "license": "CC-BY",
+      "attribution": "(c) Annika Lindqvist, some rights reserved (CC BY)"
+    },
+    {
+      "image_file": "images/5_Spodoptera_eridania_adulto/inat_5261860_6512018.jpg",
+      "training_name": "inat_6512018.jpg",
+      "class_id": 5,
+      "boxes": 1,
+      "source_url": "https://www.inaturalist.org/observations/5261860",
+      "license": "CC-BY",
+      "attribution": "(c) Annika Lindqvist, some rights reserved (CC BY)"
+    },
+    {
+      "image_file": "images/5_Spodoptera_eridania_adulto/inat_8485622_11317396.jpg",
+      "training_name": "inat_11317396.jpg",
+      "class_id": 5,
+      "boxes": 1,
+      "source_url": "https://www.inaturalist.org/observations/8485622",
+      "license": "CC-BY",
+      "attribution": "(c) David Dodd, some rights reserved (CC BY)"
+    },
+    {
+      "image_file": "images/5_Spodoptera_eridania_adulto/inat_8527532_11387426.jpg",
+      "training_name": "inat_11387426.jpg",
+      "class_id": 5,
+      "boxes": 1,
+      "source_url": "https://www.inaturalist.org/observations/8527532",
+      "license": "CC-BY",
+      "attribution": "(c) David Dodd, some rights reserved (CC BY)"
+    },
+    {
+      "image_file": "images/5_Spodoptera_eridania_adulto/inat_8648107_11578740.jpg",
+      "training_name": "inat_11578740.jpg",
+      "class_id": 5,
+      "boxes": 1,
+      "source_url": "https://www.inaturalist.org/observations/8648107",
+      "license": "CC-BY",
+      "attribution": "(c) David Dodd, some rights reserved (CC BY)"
+    },
+    {
+      "image_file": "images/6_Spodoptera_eridania_larva/inat_143864599_246796372.jpg",
+      "training_name": "inat_246796372.jpg",
+      "class_id": 6,
+      "boxes": 1,
+      "source_url": "https://www.inaturalist.org/observations/143864599",
+      "license": "CC-BY",
+      "attribution": "(c) Douglas, some rights reserved (CC BY)"
+    },
+    {
+      "image_file": "images/6_Spodoptera_eridania_larva/inat_43789015_69444666.jpg",
+      "training_name": "inat_69444666.jpg",
+      "class_id": 6,
+      "boxes": 1,
+      "source_url": "https://www.inaturalist.org/observations/43789015",
+      "license": "CC-BY",
+      "attribution": "(c) Douglas, some rights reserved (CC BY)"
+    },
+    {
+      "image_file": "images/6_Spodoptera_eridania_larva/inat_73251085_119561434.jpg",
+      "training_name": "inat_119561434.jpg",
+      "class_id": 6,
+      "boxes": 1,
+      "source_url": "https://www.inaturalist.org/observations/73251085",
+      "license": "CC-BY",
+      "attribution": "(c) Douglas, some rights reserved (CC BY)"
+    },
+    {
+      "image_file": "images/6_Spodoptera_eridania_larva/inat_79851169_130819144.jpg",
+      "training_name": "inat_130819144.jpg",
+      "class_id": 6,
+      "boxes": 1,
+      "source_url": "https://www.inaturalist.org/observations/79851169",
+      "license": "CC-BY",
+      "attribution": "(c) Helio Lourencini, some rights reserved (CC BY)"
+    },
+    {
+      "image_file": "images/6_Spodoptera_eridania_larva/inat_81967077_134482443.jpg",
+      "training_name": "inat_134482443.jpg",
+      "class_id": 6,
+      "boxes": 1,
+      "source_url": "https://www.inaturalist.org/observations/81967077",
+      "license": "CC-BY",
+      "attribution": "(c) Helio Lourencini, some rights reserved (CC BY)"
+    },
+    {
+      "image_file": "images/6_Spodoptera_eridania_larva/inat_82232665_134948633.jpg",
+      "training_name": "inat_134948633.jpg",
+      "class_id": 6,
+      "boxes": 1,
+      "source_url": "https://www.inaturalist.org/observations/82232665",
+      "license": "CC-BY",
+      "attribution": "(c) Helio Lourencini, some rights reserved (CC BY)"
+    },
+    {
+      "image_file": "images/6_Spodoptera_eridania_larva/inat_85009848_139793798.jpg",
+      "training_name": "inat_139793798.jpg",
+      "class_id": 6,
+      "boxes": 1,
+      "source_url": "https://www.inaturalist.org/observations/85009848",
+      "license": "CC-BY",
+      "attribution": "(c) Lucas Rubio, some rights reserved (CC BY)"
+    },
+    {
+      "image_file": "images/6_Spodoptera_eridania_larva/inat_87263181_143841956.jpg",
+      "training_name": "inat_143841956.jpg",
+      "class_id": 6,
+      "boxes": 1,
+      "source_url": "https://www.inaturalist.org/observations/87263181",
+      "license": "CC-BY",
+      "attribution": "(c) Helio Lourencini, some rights reserved (CC BY)"
+    },
+    {
+      "image_file": "images/6_Spodoptera_eridania_larva/inat_96940321_161117801.jpg",
+      "training_name": "inat_161117801.jpg",
+      "class_id": 6,
+      "boxes": 1,
+      "source_url": "https://www.inaturalist.org/observations/96940321",
+      "license": "CC-BY",
+      "attribution": "(c) mfeaver, some rights reserved (CC BY)"
+    },
+    {
+      "image_file": "images/6_Spodoptera_eridania_larva/inat_97585771_162316957.jpg",
+      "training_name": "inat_162316957.jpg",
+      "class_id": 6,
+      "boxes": 1,
+      "source_url": "https://www.inaturalist.org/observations/97585771",
+      "license": "CC0",
+      "attribution": "no rights reserved"
+    }
+  ],
+  "rejected": [
+    {
+      "image_file": "images/0_Chloridea_virescens_adulto/inat_21296271_32930671.jpg",
+      "reason": "no_expected_box_above_0.35"
+    },
+    {
+      "image_file": "images/0_Chloridea_virescens_adulto/inat_30786629_48117296.jpg",
+      "reason": "no_expected_box_above_0.35"
+    },
+    {
+      "image_file": "images/0_Chloridea_virescens_adulto/inat_3790451_4424197.jpg",
+      "reason": "no_expected_box_above_0.35"
+    },
+    {
+      "image_file": "images/0_Chloridea_virescens_adulto/inat_4169313_4964173.jpg",
+      "reason": "no_expected_box_above_0.35"
+    },
+    {
+      "image_file": "images/0_Chloridea_virescens_adulto/inat_56184527_89515875.jpg",
+      "reason": "no_expected_box_above_0.35"
+    },
+    {
+      "image_file": "images/0_Chloridea_virescens_adulto/inat_56596811_90204198.jpg",
+      "reason": "no_expected_box_above_0.35"
+    },
+    {
+      "image_file": "images/0_Chloridea_virescens_adulto/inat_7452674_9693132.jpg",
+      "reason": "no_expected_box_above_0.35"
+    },
+    {
+      "image_file": "images/0_Chloridea_virescens_adulto/inat_8801134_11818119.jpg",
+      "reason": "no_expected_box_above_0.35"
+    },
+    {
+      "image_file": "images/1_Chloridea_virescens_larva/inat_15156297_22658605.jpg",
+      "reason": "no_expected_box_above_0.35"
+    },
+    {
+      "image_file": "images/2_Chrysodeixis_includens_adulto/inat_4104445_4876571.jpg",
+      "reason": "no_expected_box_above_0.35"
+    },
+    {
+      "image_file": "images/2_Chrysodeixis_includens_adulto/inat_4202452_5008949.jpg",
+      "reason": "no_expected_box_above_0.35"
+    },
+    {
+      "image_file": "images/3_Chrysodeixis_includens_larva/inat_398054244_730154590.jpg",
+      "reason": "no_expected_box_above_0.35"
+    },
+    {
+      "image_file": "images/5_Spodoptera_eridania_adulto/inat_5128441_6560334.jpg",
+      "reason": "no_expected_box_above_0.35"
+    },
+    {
+      "image_file": "images/5_Spodoptera_eridania_adulto/inat_7146412_9202099.jpg",
+      "reason": "no_expected_box_above_0.35"
+    },
+    {
+      "image_file": "images/5_Spodoptera_eridania_adulto/inat_8473321_11297546.jpg",
+      "reason": "no_expected_box_above_0.35"
+    },
+    {
+      "image_file": "images/5_Spodoptera_eridania_adulto/inat_8648108_11578741.jpg",
+      "reason": "no_expected_box_above_0.35"
+    },
+    {
+      "image_file": "images/5_Spodoptera_eridania_adulto/inat_8648109_11578745.jpg",
+      "reason": "no_expected_box_above_0.35"
+    },
+    {
+      "image_file": "images/5_Spodoptera_eridania_adulto/inat_8657995_11594352.jpg",
+      "reason": "no_expected_box_above_0.35"
+    },
+    {
+      "image_file": "images/6_Spodoptera_eridania_larva/inat_7585662_9909731.jpg",
+      "reason": "no_expected_box_above_0.35"
+    },
+    {
+      "image_file": "images/6_Spodoptera_eridania_larva/inat_81445878_133591300.jpg",
+      "reason": "no_expected_box_above_0.35"
+    }
+  ],
+  "holdout": [
+    {
+      "image_file": "images/0_Chloridea_virescens_adulto/inat_16223216_24345226.jpg",
+      "class_id": 0,
+      "observation_id": "16223216",
+      "observation_url": "https://www.inaturalist.org/observations/16223216"
+    },
+    {
+      "image_file": "images/0_Chloridea_virescens_adulto/inat_4250665_5083191.jpg",
+      "class_id": 0,
+      "observation_id": "4250665",
+      "observation_url": "http://www.inaturalist.org/observations/4250665"
+    },
+    {
+      "image_file": "images/0_Chloridea_virescens_adulto/inat_46027952_73001526.jpg",
+      "class_id": 0,
+      "observation_id": "46027952",
+      "observation_url": "https://www.inaturalist.org/observations/46027952"
+    },
+    {
+      "image_file": "images/0_Chloridea_virescens_adulto/inat_56903265_90717581.jpg",
+      "class_id": 0,
+      "observation_id": "56903265",
+      "observation_url": "https://www.inaturalist.org/observations/56903265"
+    },
+    {
+      "image_file": "images/0_Chloridea_virescens_adulto/inat_7470421_9723242.jpg",
+      "class_id": 0,
+      "observation_id": "7470421",
+      "observation_url": "https://www.inaturalist.org/observations/7470421"
+    },
+    {
+      "image_file": "images/0_Chloridea_virescens_adulto/inat_8103932_10749925.jpg",
+      "class_id": 0,
+      "observation_id": "8103932",
+      "observation_url": "https://www.inaturalist.org/observations/8103932"
+    },
+    {
+      "image_file": "images/1_Chloridea_virescens_larva/inat_104645890_175389456.jpg",
+      "class_id": 1,
+      "observation_id": "104645890",
+      "observation_url": "https://www.inaturalist.org/observations/104645890"
+    },
+    {
+      "image_file": "images/1_Chloridea_virescens_larva/inat_14716922_21973104.jpg",
+      "class_id": 1,
+      "observation_id": "14716922",
+      "observation_url": "https://www.inaturalist.org/observations/14716922"
+    },
+    {
+      "image_file": "images/1_Chloridea_virescens_larva/inat_31453720_49227663.jpg",
+      "class_id": 1,
+      "observation_id": "31453720",
+      "observation_url": "https://www.inaturalist.org/observations/31453720"
+    },
+    {
+      "image_file": "images/1_Chloridea_virescens_larva/inat_32507855_50993690.jpg",
+      "class_id": 1,
+      "observation_id": "32507855",
+      "observation_url": "https://www.inaturalist.org/observations/32507855"
+    },
+    {
+      "image_file": "images/1_Chloridea_virescens_larva/inat_33166327_52067228.jpg",
+      "class_id": 1,
+      "observation_id": "33166327",
+      "observation_url": "https://www.inaturalist.org/observations/33166327"
+    },
+    {
+      "image_file": "images/1_Chloridea_virescens_larva/inat_76924538_125805812.jpg",
+      "class_id": 1,
+      "observation_id": "76924538",
+      "observation_url": "https://www.inaturalist.org/observations/76924538"
+    },
+    {
+      "image_file": "images/2_Chrysodeixis_includens_adulto/inat_3742793_4351099.jpg",
+      "class_id": 2,
+      "observation_id": "3742793",
+      "observation_url": "http://www.inaturalist.org/observations/3742793"
+    },
+    {
+      "image_file": "images/2_Chrysodeixis_includens_adulto/inat_3972464_4683396.jpg",
+      "class_id": 2,
+      "observation_id": "3972464",
+      "observation_url": "http://www.inaturalist.org/observations/3972464"
+    },
+    {
+      "image_file": "images/2_Chrysodeixis_includens_adulto/inat_3979454_4693424.jpg",
+      "class_id": 2,
+      "observation_id": "3979454",
+      "observation_url": "http://www.inaturalist.org/observations/3979454"
+    },
+    {
+      "image_file": "images/2_Chrysodeixis_includens_adulto/inat_3987422_4707264.jpg",
+      "class_id": 2,
+      "observation_id": "3987422",
+      "observation_url": "http://www.inaturalist.org/observations/3987422"
+    },
+    {
+      "image_file": "images/2_Chrysodeixis_includens_adulto/inat_3994521_4716195.jpg",
+      "class_id": 2,
+      "observation_id": "3994521",
+      "observation_url": "http://www.inaturalist.org/observations/3994521"
+    },
+    {
+      "image_file": "images/2_Chrysodeixis_includens_adulto/inat_894994_1138547.jpg",
+      "class_id": 2,
+      "observation_id": "894994",
+      "observation_url": "http://www.inaturalist.org/observations/894994"
+    },
+    {
+      "image_file": "images/3_Chrysodeixis_includens_larva/inat_392576953_719465633.jpg",
+      "class_id": 3,
+      "observation_id": "392576953",
+      "observation_url": "https://www.inaturalist.org/observations/392576953"
+    },
+    {
+      "image_file": "images/3_Chrysodeixis_includens_larva/inat_65471220_105386401.jpg",
+      "class_id": 3,
+      "observation_id": "65471220",
+      "observation_url": "https://www.inaturalist.org/observations/65471220"
+    },
+    {
+      "image_file": "images/5_Spodoptera_eridania_adulto/inat_2267436_2554510.jpg",
+      "class_id": 5,
+      "observation_id": "2267436",
+      "observation_url": "http://www.inaturalist.org/observations/2267436"
+    },
+    {
+      "image_file": "images/5_Spodoptera_eridania_adulto/inat_2708888_3051995.jpg",
+      "class_id": 5,
+      "observation_id": "2708888",
+      "observation_url": "http://www.inaturalist.org/observations/2708888"
+    },
+    {
+      "image_file": "images/5_Spodoptera_eridania_adulto/inat_7147727_9203951.jpg",
+      "class_id": 5,
+      "observation_id": "7147727",
+      "observation_url": "https://www.inaturalist.org/observations/7147727"
+    },
+    {
+      "image_file": "images/5_Spodoptera_eridania_adulto/inat_7758571_10188755.jpg",
+      "class_id": 5,
+      "observation_id": "7758571",
+      "observation_url": "https://www.inaturalist.org/observations/7758571"
+    },
+    {
+      "image_file": "images/5_Spodoptera_eridania_adulto/inat_8508154_11354001.jpg",
+      "class_id": 5,
+      "observation_id": "8508154",
+      "observation_url": "https://www.inaturalist.org/observations/8508154"
+    },
+    {
+      "image_file": "images/5_Spodoptera_eridania_adulto/inat_8667423_11610439.jpg",
+      "class_id": 5,
+      "observation_id": "8667423",
+      "observation_url": "https://www.inaturalist.org/observations/8667423"
+    },
+    {
+      "image_file": "images/6_Spodoptera_eridania_larva/inat_103021842_172333823.jpg",
+      "class_id": 6,
+      "observation_id": "103021842",
+      "observation_url": "https://www.inaturalist.org/observations/103021842"
+    },
+    {
+      "image_file": "images/6_Spodoptera_eridania_larva/inat_183556833_320256933.jpg",
+      "class_id": 6,
+      "observation_id": "183556833",
+      "observation_url": "https://www.inaturalist.org/observations/183556833"
+    },
+    {
+      "image_file": "images/6_Spodoptera_eridania_larva/inat_64900946_104412251.jpg",
+      "class_id": 6,
+      "observation_id": "64900946",
+      "observation_url": "https://www.inaturalist.org/observations/64900946"
+    },
+    {
+      "image_file": "images/6_Spodoptera_eridania_larva/inat_68272394_110503733.jpg",
+      "class_id": 6,
+      "observation_id": "68272394",
+      "observation_url": "https://www.inaturalist.org/observations/68272394"
+    },
+    {
+      "image_file": "images/6_Spodoptera_eridania_larva/inat_85009842_139793413.jpg",
+      "class_id": 6,
+      "observation_id": "85009842",
+      "observation_url": "https://www.inaturalist.org/observations/85009842"
+    },
+    {
+      "image_file": "images/6_Spodoptera_eridania_larva/inat_872238_1107764.jpg",
+      "class_id": 6,
+      "observation_id": "872238",
+      "observation_url": "http://www.inaturalist.org/observations/872238"
+    }
+  ],
+  "additional_roboflow_augmented_train_images": 48
+}
