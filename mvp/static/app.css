@@ -76,3 +76,21 @@ main{max-width:1400px}
 @media(max-width:1120px){.top-nav{gap:0}.top-nav a{padding:9px 8px;font-size:.78rem}}
 @media(max-width:850px){.top-nav{display:none}.steps{gap:8px}.steps a{font-size:.75rem;padding:10px}.steps span{width:26px;height:26px}}
 @media(max-width:580px){.steps{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:4px}.steps a{flex:0 0 78%;scroll-snap-align:start;min-height:54px;font-size:.85rem}.top-right{margin-left:auto}}
+
+
+/* UX refinement: nonfunctional presentation improvements only */
+.empty-hint{display:inline-block;margin-top:12px;color:#c4dfbe;font-size:.76rem;line-height:1.45}
+.record-intro{color:#647a6d;font-size:.87rem;margin:-4px 0 20px;line-height:1.55}
+#detections:empty:before{content:"Todavía no hay resultados";color:#698172;font-size:.88rem}
+#senasaResult,#locationStatus,#reviewHint{line-height:1.6}
+.message{border-left:3px solid #6caa82;line-height:1.5}
+.message.error{border-left-color:#ca664a}
+.toolbar .primary,.toolbar .secondary,.toolbar .file-btn{gap:8px;white-space:normal}
+.toolbar .file-btn{border-style:dashed;border-width:1.5px}
+.review-actions .secondary{min-height:42px}
+.history-item{align-items:flex-start}
+.history-item img{flex:none}
+.history-item>div{min-width:0;overflow-wrap:anywhere}
+.record-grid label{line-height:1.4}
+.record-grid input:focus,.record-grid select:focus{border-color:#3c9c72;box-shadow:0 0 0 3px rgba(57,150,103,.12)}
+@media(max-width:650px){.record-intro{margin:0 0 16px}.toolbar .file-btn{padding:11px 8px}.history-item img{width:58px;height:58px}.review-tools{padding:14px}}
