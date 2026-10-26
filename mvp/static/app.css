@@ -336,3 +336,27 @@ footer a { margin-left: auto; min-height: 44px; display: inline-flex; align-item
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+
+
+/* Premium 2.0 refinement — presentation only; no functional changes. */
+:root{--radius:20px;--shadow:0 6px 28px rgba(19,58,39,.065);--soft:#f5f9f5}
+body{background:linear-gradient(180deg,#f0f6f0 0%,#f7faf7 44%,#f3f7f3 100%)}
+.topbar{background:linear-gradient(108deg,#123e32,#174b39);box-shadow:0 6px 20px rgba(13,49,33,.11)}
+.top-nav{box-shadow:0 3px 12px rgba(23,58,43,.04)}
+.top-nav a{transition:background-color .18s ease,color .18s ease}
+.top-nav a:focus-visible{outline-offset:0}
+.card{transition:border-color .18s ease,box-shadow .18s ease}
+.card:hover{border-color:#cbdccf;box-shadow:0 10px 30px rgba(19,58,39,.07)}
+.viewer-card{border-color:#cadbcb}
+.intro h1{color:#173f2e}
+.toolbar .file-btn{box-shadow:0 5px 13px rgba(21,108,76,.16)}
+.toolbar .file-btn:hover{box-shadow:0 7px 18px rgba(21,108,76,.2)}
+.primary:active:not(:disabled),.secondary:active:not(:disabled),.file-btn:active{transform:translateY(1px)}
+.detections .detection-row{border-radius:9px}
+.metrics-card .big-number{font-variant-numeric:tabular-nums}
+.record-card,.products-card,.comparison-card{scroll-margin-top:100px}
+input:not([type=range]):not([type=checkbox]):not([type=file]),select,textarea{transition:box-shadow .18s ease,border-color .18s ease}
+.history-item{transition:background-color .15s ease,border-color .15s ease}
+.history-item:hover{background:#f7fbf7;border-color:#c9ddcc}
+@media(max-width:650px){.card{box-shadow:0 3px 16px rgba(19,58,39,.045)}.card:hover{box-shadow:0 3px 16px rgba(19,58,39,.045)}.toolbar .file-btn{width:100%}}
+@media(prefers-reduced-motion:reduce){.card,.top-nav a,.history-item,input,select,textarea{transition:none!important}}
