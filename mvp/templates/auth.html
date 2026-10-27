@@ -1,0 +1,38 @@
+{% extends "base_account.html" %}
+{% block title %}{% if mode == 'registro' %}Crear cuenta{% elif mode == 'activar' %}Activar superadmin{% else %}Iniciar sesión{% endif %} · AgriTech{% endblock %}
+{% block content %}
+<section class="account-card auth-card">
+  <p class="eyebrow">CUENTAS AGRITECH</p>
+  {% if mode == 'registro' %}
+    <h1>Crea tu espacio de inspección.</h1>
+    <p class="account-lede">Tus nuevos hallazgos, fotos y datos del cultivo se guardan en tu cuenta. Empiezas con el plan Explorar.</p>
+    <form method="post" action="/registro" class="account-form">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+      <label>Nombre completo<input name="name" autocomplete="name" minlength="2" maxlength="100" required></label>
+      <label>Correo electrónico<input name="email" type="email" autocomplete="email" maxlength="254" required></label>
+      <label>Contraseña<input name="password" type="password" autocomplete="new-password" minlength="12" maxlength="128" required><small>Usa al menos 12 caracteres.</small></label>
+      <button class="account-primary" type="submit">Crear cuenta gratuita</button>
+    </form>
+    <p class="auth-switch">¿Ya tienes cuenta? <a href="/login">Inicia sesión</a>.</p>
+  {% elif mode == 'activar' %}
+    <h1>Activa la cuenta superadmin.</h1>
+    <p class="account-lede">Este enlace funciona una vez y vence en 24 horas. Elige una contraseña que solo tú conozcas.</p>
+    <form method="post" action="{{ url_for('admin_activate', token=setup_token) }}" class="account-form">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+      <label>Nueva contraseña<input name="password" type="password" autocomplete="new-password" minlength="12" maxlength="128" required></label>
+      <button class="account-primary" type="submit">Activar superadmin</button>
+    </form>
+  {% else %}
+    <h1>Continúa con tu cultivo.</h1>
+    <p class="account-lede">Accede a tus inspecciones y al dashboard de tu cuenta.</p>
+    <form method="post" action="/login" class="account-form">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+      <input type="hidden" name="next" value="{{ request.args.get('next', '') }}">
+      <label>Correo electrónico<input name="email" type="email" autocomplete="email" required></label>
+      <label>Contraseña<input name="password" type="password" autocomplete="current-password" required></label>
+      <button class="account-primary" type="submit">Iniciar sesión</button>
+    </form>
+    <p class="auth-switch">¿Primera vez? <a href="/registro">Crea una cuenta gratuita</a>.</p>
+  {% endif %}
+</section>
+{% endblock %}
