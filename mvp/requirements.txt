@@ -1,0 +1,9 @@
+Flask>=3.0,<4
+ultralytics>=8.4
+Pillow>=10
+selenium>=4.20
+PyYAML>=6
+pypdf>=4
+pdfplumber>=0.11
+requests>=2.31
+safetensors>=0.4
