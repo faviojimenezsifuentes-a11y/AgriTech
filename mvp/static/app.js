@@ -376,7 +376,7 @@ $('senasaBtn').addEventListener('click',async()=>{
 });
 function renderProducts(){
   const query=$('productSearch').value.trim().toLocaleLowerCase('es');
-  const filtered=state.products.filter(p=>[p.registration,p.name,p.ingredient,p.category].some(v=>v.toLocaleLowerCase('es').includes(query)));
+  const filtered=state.products.filter(p=>[p.registration,p.name,p.ingredient,p.category].some(v=>String(v || '').toLocaleLowerCase('es').includes(query)));
   $('productsCount').textContent=state.products.length+' registros';
   $('productsBody').replaceChildren();
   for(const product of filtered.slice(0,100)){
@@ -385,6 +385,11 @@ function renderProducts(){
       const cell=document.createElement('td');cell.textContent=product[key]||'—';row.append(cell);
     }
     $('productsBody').append(row);
+  }
+  if(!filtered.length){
+    const row=document.createElement('tr');const cell=document.createElement('td');cell.colSpan=6;
+    cell.textContent=query?'Sin coincidencias. Prueba otro término.':'El reporte no contiene productos para mostrar.';
+    row.append(cell);$('productsBody').append(row);
   }
   $('productsShown').textContent=`Mostrando ${Math.min(filtered.length,100)} de ${filtered.length} coincidencias. Busca por nombre, ingrediente o registro para filtrar.`;
 }

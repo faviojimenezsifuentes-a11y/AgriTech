@@ -146,7 +146,8 @@
       <div class="card-head"><div><p class="eyebrow">REPORTE OFICIAL</p><h2 id="productsTitle">Productos del reporte SIGIA</h2></div><strong id="productsCount" class="subtle-tag"></strong></div>
       <p class="muted">Listado extraído del PDF para espárrago. Verifica el registro vigente, la etiqueta y la indicación de un profesional antes de tomar cualquier medida.</p>
       <label for="productSearch">Filtrar productos</label><input id="productSearch" type="search" placeholder="Producto, ingrediente o número de registro">
-      <div class="table-wrap" tabindex="0" role="region" aria-label="Productos SIGIA; tabla desplazable"><table><caption class="sr-only">Productos registrados en el reporte de SENASA</caption><thead><tr><th scope="col">Registro</th><th scope="col">Producto</th><th scope="col">Ingrediente activo</th><th scope="col">Clase</th><th scope="col"><abbr title="Periodo de carencia">PC</abbr></th><th scope="col"><abbr title="Límite máximo de residuos">LMR</abbr></th></tr></thead><tbody id="productsBody"></tbody></table></div>
+      <p class="small muted" id="productsScrollHelp">En pantallas pequeñas, desplaza la tabla horizontalmente para ver todas las columnas.</p>
+      <div class="table-wrap" tabindex="0" role="region" aria-label="Productos SIGIA; tabla desplazable" aria-describedby="productsScrollHelp"><table><caption class="sr-only">Productos registrados en el reporte de SENASA</caption><thead><tr><th scope="col">Registro</th><th scope="col">Producto</th><th scope="col">Ingrediente activo</th><th scope="col">Clase</th><th scope="col"><abbr title="Periodo de carencia">PC</abbr></th><th scope="col"><abbr title="Límite máximo de residuos">LMR</abbr></th></tr></thead><tbody id="productsBody"></tbody></table></div>
       <p id="productsShown" class="muted small" role="status"></p>
     </section>
 
