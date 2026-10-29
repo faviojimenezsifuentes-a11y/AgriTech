@@ -361,7 +361,7 @@ $('senasaBtn').addEventListener('click',async()=>{
         state.senasaLookupClass=name;
         $('senasaResult').replaceChildren();
         const a=document.createElement('a');a.href=result.pdf_url;a.target='_blank';a.rel='noopener';a.textContent='Abrir PDF descargado de SIGIA ↗';
-        $('senasaResult').append(`Consulta completada para ${result.crop}: ${result.product_count} registros en ${result.pages} páginas. `,a);
+        $('senasaResult').append(`Plaga consultada: ${name}. Cultivo: ${result.crop || 'espárrago'}. Fuente: SIGIA–SENASA. ${result.product_count || 0} registros en ${result.pages || 0} páginas. Verifica la vigencia del registro y la etiqueta antes de actuar. `,a);
         const productsResponse=await fetch(`/api/senasa/consultas/${job.job_id}/productos`);
         if(productsResponse.ok){state.products=await productsResponse.json();$('productsCard').hidden=false;renderProducts();}
         return;
