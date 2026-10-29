@@ -16,10 +16,13 @@ function recordMessage(text, error=false){
   $('saveMessage').textContent=text;
   $('saveMessage').classList.toggle('error',error);
 }
-function photoBusy(busy){
+function photoBusy(busy, label='Analizando imagen…'){
   $('viewport').setAttribute('aria-busy',String(busy));
   $('analysisProgress').hidden=!busy;
-  if(busy)$('livePill').textContent='Analizando…';
+  if(busy){
+    $('analysisProgress').querySelector('span:last-child').textContent=label;
+    $('livePill').textContent=label==='Preparando imagen…'?'Preparando…':'Analizando…';
+  }
 }
 function clearResultView(text='Esperando una imagen'){
   $('totalCount').textContent='—';$('resultSummary').textContent=text;
@@ -299,7 +302,7 @@ $('photoInput').addEventListener('change',async event=>{
   state.photoBlob=file;const photoRequest=++state.photoRequest;
   $('livePill').textContent='Foto cargada';
   state.latest=null;state.imageData=null;
-  clearResultView('Preparando imagen…');refreshReview();setupCanvas();photoBusy(true);
+  clearResultView('Preparando imagen…');refreshReview();setupCanvas();photoBusy(true,'Preparando imagen…');
   const reader=new FileReader();
   reader.onload=async()=>{
     if(photoRequest!==state.photoRequest)return;
@@ -315,7 +318,7 @@ $('photoInput').addEventListener('change',async event=>{
       return;
     }
     if(photoRequest!==state.photoRequest)return;
-    setupCanvas();message('Analizando imagen…');
+    setupCanvas();photoBusy(true,'Analizando imagen…');message('Analizando imagen…');
      try{const result=await detectBlob(file);if(photoRequest!==state.photoRequest)return;updateUI(result);$('livePill').textContent='Foto analizada';message('Análisis terminado. Revisa las cajas y confirma el hallazgo.');}
     catch(error){if(photoRequest===state.photoRequest){$('livePill').textContent='Análisis no disponible';clearResultView('No se pudo completar el análisis.');message(error.message,true);}}
     finally{if(photoRequest===state.photoRequest)photoBusy(false);}
