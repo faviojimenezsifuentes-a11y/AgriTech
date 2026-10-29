@@ -432,7 +432,11 @@ async function loadHistory(){
     const findings=await response.json();
     $('historyMessage').textContent=findings.length?findings.length+' registro(s) recientes':'Tu próximo hallazgo aparecerá aquí.';
     $('history').replaceChildren();
-    if(!findings.length){const p=document.createElement('p');p.className='muted';p.textContent='Aún no hay hallazgos guardados.';$('history').append(p);return;}
+    if(!findings.length){
+      const p=document.createElement('p');p.className='muted';p.textContent='Aún no tienes hallazgos guardados. Analiza una foto para comenzar.';
+      const link=document.createElement('a');link.href='#inspeccion';link.textContent='Ir a inspección ↗';
+      $('history').append(p,link);return;
+    }
     for(const item of findings){
       const row=document.createElement('div');row.className='history-item';
       const img=document.createElement('img');img.src=item.image_url;img.alt='Captura del hallazgo en '+item.sector;img.loading='lazy';
