@@ -322,12 +322,13 @@ def create_app():
                     image_path = IMAGE_DIR / image_name
                     image.save(image_path, "JPEG", quality=88)
 
-                    status = "confirmado" if cleaned else "pendiente"
+                    # Las predicciones del PDF requieren revisión humana antes de exportarse.
+                    status = "pendiente"
                     obs = f"Inspección 3D / Planta #{plant.get('id', saved_count + 1)}"
                     con.execute(
                         "INSERT INTO hallazgos (id,created_at,sector,lat,lon,observations,detections_json,image_name,status,reviewed_at,model_name,owner_id) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)",
                         (finding_id, now_str, sector, None, None, obs, json.dumps(cleaned), image_name, status,
-                         now_str if status == "confirmado" else None, MODEL_PATH.name, user["id"])
+                         None, MODEL_PATH.name, user["id"])
                     )
                     saved_count += 1
         except Exception:

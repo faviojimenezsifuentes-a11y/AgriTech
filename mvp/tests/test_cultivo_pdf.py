@@ -240,9 +240,11 @@ class TestCultivo3DEndpoints(unittest.TestCase):
         self.assertEqual(data["saved_count"], 2)
 
         with project.db_connection() as con:
-            rows = con.execute("SELECT sector, status, detections_json FROM hallazgos").fetchall()
+            rows = con.execute("SELECT sector, status, detections_json, reviewed_at FROM hallazgos").fetchall()
             self.assertEqual(len(rows), 2)
             self.assertEqual(rows[0]["sector"], "Lote San José")
+            self.assertTrue(all(row["status"] == "pendiente" for row in rows))
+            self.assertTrue(all(row["reviewed_at"] is None for row in rows))
 
 
 if __name__ == "__main__":
