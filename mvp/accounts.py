@@ -7,6 +7,7 @@ import os
 import re
 import secrets
 import sqlite3
+from urllib.parse import unquote
 from datetime import datetime, timedelta, timezone
 
 import click
@@ -176,7 +177,15 @@ class Accounts:
             session["user_id"] = row["id"]
             session.permanent = True
             next_path = request.form.get("next", "")
-            return redirect(next_path if next_path.startswith("/") and not next_path.startswith("//") else url_for("dashboard"))
+            # Evitar open redirects: algunos navegadores interpretan /\\destino como //destino.
+            decoded_next = unquote(next_path)
+            safe_local_path = (
+                decoded_next.startswith("/")
+                and not decoded_next.startswith("//")
+                and "\\" not in decoded_next
+                and not any(ord(character) < 32 or ord(character) == 127 for character in decoded_next)
+            )
+            return redirect(next_path if safe_local_path else url_for("dashboard"))
 
         @app.post("/logout")
         def logout():
