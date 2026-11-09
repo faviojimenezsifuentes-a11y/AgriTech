@@ -80,6 +80,8 @@ jobs:
           python-version: "3.12"
       - name: Instalar dependencias para pruebas Flask sin pesos YOLO
         run: python -m pip install "Flask>=3,<4" "Pillow>=10" "pypdf>=4" "PyYAML>=6"
+      - name: Verificar que las pruebas unitarias no importen Playwright
+        run: python -m unittest discover -s mvp/tests -p 'test_favio_e2e.py' -v
       - name: Validar sesiones, autenticación, roles y CSRF
         shell: bash
         run: |
