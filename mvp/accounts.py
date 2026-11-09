@@ -112,6 +112,12 @@ class Accounts:
         def private_headers(response):
             response.headers.setdefault("X-Content-Type-Options", "nosniff")
             response.headers.setdefault("Referrer-Policy", "no-referrer")
+            # Previene clickjacking: la aplicación no debe incrustarse en iframes externos.
+            response.headers.setdefault("X-Frame-Options", "DENY")
+            response.headers.setdefault("Content-Security-Policy", "frame-ancestors 'none'")
+            # HSTS solo en producción: nunca imponer HTTPS en el entorno local de pruebas.
+            if os.environ.get("AGRI_ENV") == "production":
+                response.headers.setdefault("Strict-Transport-Security", "max-age=31536000")
             if request.path.startswith(("/dashboard", "/admin", "/api/hallazgos", "/api/dataset", "/api/cultivo")):
                 response.headers["Cache-Control"] = "private, no-store"
             return response
