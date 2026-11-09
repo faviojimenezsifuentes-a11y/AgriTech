@@ -86,12 +86,19 @@ jobs:
           set -o pipefail
           mkdir -p mvp/test-results
           python -m unittest discover -s mvp/tests -p 'test_favio_security.py' -v 2>&1 | tee mvp/test-results/seguridad.txt
+      - name: Prevenir regresiones de permisos entre agricultores (IDOR/BOLA)
+        shell: bash
+        run: |
+          set -o pipefail
+          python -m unittest discover -s mvp/tests -p 'test_regresion_permisos.py' -v 2>&1 | tee mvp/test-results/regresion-permisos.txt
       - name: Conservar evidencia de seguridad
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: favio-evidencia-seguridad
-          path: mvp/test-results/seguridad.txt
+          path: |
+            mvp/test-results/seguridad.txt
+            mvp/test-results/regresion-permisos.txt
           if-no-files-found: warn
 
   integracion:
