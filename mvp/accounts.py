@@ -7,6 +7,7 @@ import os
 import re
 import secrets
 import sqlite3
+from urllib.parse import unquote
 from datetime import datetime, timedelta, timezone
 
 import click
@@ -111,6 +112,12 @@ class Accounts:
         def private_headers(response):
             response.headers.setdefault("X-Content-Type-Options", "nosniff")
             response.headers.setdefault("Referrer-Policy", "no-referrer")
+            # Previene clickjacking: la aplicación no debe incrustarse en iframes externos.
+            response.headers.setdefault("X-Frame-Options", "DENY")
+            response.headers.setdefault("Content-Security-Policy", "frame-ancestors 'none'")
+            # HSTS solo en producción: nunca imponer HTTPS en el entorno local de pruebas.
+            if os.environ.get("AGRI_ENV") == "production":
+                response.headers.setdefault("Strict-Transport-Security", "max-age=31536000")
             if request.path.startswith(("/dashboard", "/admin", "/api/hallazgos", "/api/dataset", "/api/cultivo")):
                 response.headers["Cache-Control"] = "private, no-store"
             return response
@@ -176,7 +183,15 @@ class Accounts:
             session["user_id"] = row["id"]
             session.permanent = True
             next_path = request.form.get("next", "")
-            return redirect(next_path if next_path.startswith("/") and not next_path.startswith("//") else url_for("dashboard"))
+            # Evitar open redirects: algunos navegadores interpretan /\\destino como //destino.
+            decoded_next = unquote(next_path)
+            safe_local_path = (
+                decoded_next.startswith("/")
+                and not decoded_next.startswith("//")
+                and "\\" not in decoded_next
+                and not any(ord(character) < 32 or ord(character) == 127 for character in decoded_next)
+            )
+            return redirect(next_path if safe_local_path else url_for("dashboard"))
 
         @app.post("/logout")
         def logout():
