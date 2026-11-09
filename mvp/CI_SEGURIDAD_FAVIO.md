@@ -55,3 +55,16 @@ Los resultados de GitHub Actions deben consultarse antes de afirmar que las prue
 - Comprobar la ejecución real del nuevo workflow en GitHub Actions.
 - Abrir Pull Request desde esta rama hacia `jjjoaquo/AgriTech:main`.
 - Solicitar revisión de cambios al equipo antes de fusionar.
+
+
+## Refuerzo adicional: cabeceras HTTP defensivas
+
+Se implementaron en `mvp/accounts.py`:
+
+- `X-Frame-Options: DENY`: impide cargar las pantallas de AgriTech dentro de un iframe de otro sitio, reduciendo el riesgo de **clickjacking**.
+- `Content-Security-Policy: frame-ancestors 'none'`: defensa equivalente para navegadores modernos, limitada a la política de incrustación.
+- `Strict-Transport-Security: max-age=31536000`: se emite **solo** si `AGRI_ENV=production`, para indicar al navegador que utilice HTTPS después de recibirla por una conexión HTTPS válida. No se usa `includeSubDomains` ni `preload`.
+
+**Consideraciones:** estas cabeceras asumen que AgriTech se utiliza como sitio independiente; si más adelante debe integrarse en un iframe legítimo, será necesario revisar la política `DENY` / `frame-ancestors`. HSTS no sustituye la configuración HTTPS del hosting.
+
+Se añadieron dos pruebas automatizadas en `mvp/tests/test_favio_security.py` que verifican las cabeceras públicas/privadas y el comportamiento de HSTS según el entorno. La ejecución CI correspondiente debe revisarse antes de afirmar que las pruebas están aprobadas.
