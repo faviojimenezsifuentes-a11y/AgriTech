@@ -1,8 +1,10 @@
 """Pruebas de seguridad de la aplicación Flask (sin servicios externos ni pesos YOLO)."""
 from __future__ import annotations
 
+import os
 import sys
 import tempfile
+from unittest.mock import patch
 import unittest
 from pathlib import Path
 
@@ -56,6 +58,26 @@ class SecurityTests(unittest.TestCase):
         response = self.client.get("/login")
         self.assertEqual(response.headers.get("X-Content-Type-Options"), "nosniff")
         self.assertEqual(response.headers.get("Referrer-Policy"), "no-referrer")
+
+    def test_clickjacking_headers_present_on_public_and_private_pages(self):
+        for path in ("/", "/login", "/esparrago", "/dashboard"):
+            with self.subTest(path=path):
+                response = self.client.get(path)
+                self.assertEqual(response.headers.get("X-Frame-Options"), "DENY")
+                self.assertEqual(response.headers.get("Content-Security-Policy"), "frame-ancestors 'none'")
+
+    def test_hsts_only_when_production(self):
+        # No forzar HTTPS durante las pruebas locales.
+        with patch.dict(os.environ, {"AGRI_ENV": "development"}, clear=False):
+            response = self.client.get("/login")
+            self.assertNotIn("Strict-Transport-Security", response.headers)
+        # En modo producción el servidor debe entregar la política HSTS.
+        with patch.dict(os.environ, {
+            "AGRI_ENV": "production",
+            "AGRI_SECRET_KEY": "test-ci-not-a-production-secret",
+        }, clear=False):
+            response = self.client.get("/login")
+            self.assertEqual(response.headers.get("Strict-Transport-Security"), "max-age=31536000")
 
     def test_anonymous_private_resources_are_blocked(self):
         for path in ("/api/hallazgos", "/api/cultivo/resumen", "/api/dataset/export"):
