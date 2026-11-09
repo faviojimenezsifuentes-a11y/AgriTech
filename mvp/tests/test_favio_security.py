@@ -42,7 +42,11 @@ class SecurityTests(unittest.TestCase):
             "csrf_token": csrf,
         })
         self.assertEqual(response.status_code, 302)
+        # El registro rota la sesión y borra el CSRF previo intencionalmente.
+        # Una petición a la página autenticada emite el nuevo token.
+        self.assertEqual(client.get("/dashboard").status_code, 200)
         with client.session_transaction() as session:
+            self.assertIn("csrf_token", session)
             return session["csrf_token"]
 
     def test_cookie_and_response_security_headers(self):
