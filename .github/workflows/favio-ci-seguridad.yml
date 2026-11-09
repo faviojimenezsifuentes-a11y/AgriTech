@@ -1,12 +1,14 @@
 name: "AgriTech | Favio | CI y Seguridad"
 
+# Pipeline compartido: cualquier colaborador puede validarlo en su rama.
+# Se puede invocar desde otros workflows para evitar duplicar las pruebas.
 on:
   push:
-    branches:
-      - "Favio/**"
+    branches: ["**"]
   pull_request:
     branches: [main]
   workflow_dispatch:
+  workflow_call:
 
 permissions:
   contents: read
