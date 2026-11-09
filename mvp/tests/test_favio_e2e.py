@@ -8,15 +8,18 @@ import unittest
 import uuid
 from pathlib import Path
 
-from playwright.sync_api import sync_playwright
 
 BASE_URL = os.environ.get("AGRI_E2E_BASE_URL", "http://127.0.0.1:5000").rstrip("/")
 EVIDENCE = Path(__file__).resolve().parents[1] / "test-results" / "playwright"
 
 
+@unittest.skipUnless(os.environ.get("AGRI_RUN_PLAYWRIGHT") == "1",
+                     "Las pruebas E2E solo se ejecutan en el job de Playwright")
 class BrowserJourneyTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
+        from playwright.sync_api import sync_playwright
+
         EVIDENCE.mkdir(parents=True, exist_ok=True)
         cls.playwright = sync_playwright().start()
         cls.browser = cls.playwright.chromium.launch(headless=True)
