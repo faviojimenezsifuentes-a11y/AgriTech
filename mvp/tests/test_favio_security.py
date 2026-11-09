@@ -71,6 +71,31 @@ class SecurityTests(unittest.TestCase):
         self.assertEqual(self.client.post("/api/hallazgos", json={},
                          headers={"X-CSRF-Token": csrf}).status_code, 400)
 
+    def test_login_rejects_external_or_ambiguous_return_urls(self):
+        self.register(self.client, "redirect@example.org")
+        for destination in ("//evil.example", "/\\\\evil.example", "/%5Cevil.example",
+                            "/%2Fevil.example"):
+            with self.subTest(next=destination):
+                browser = self.app.test_client()
+                csrf = self.token(browser)
+                response = browser.post("/login", data={
+                    "email": "redirect@example.org",
+                    "password": "Password-De-Prueba-2026",
+                    "csrf_token": csrf,
+                    "next": destination,
+                })
+                self.assertEqual(response.status_code, 302)
+                self.assertEqual(response.headers["Location"], "/dashboard")
+        browser = self.app.test_client()
+        csrf = self.token(browser)
+        accepted = browser.post("/login", data={
+            "email": "redirect@example.org",
+            "password": "Password-De-Prueba-2026",
+            "csrf_token": csrf,
+            "next": "/esparrago",
+        })
+        self.assertEqual(accepted.headers["Location"], "/esparrago")
+
     def test_user_cannot_open_superadmin(self):
         self.register(self.client, "agricultor@example.org")
         self.assertEqual(self.client.get("/admin").status_code, 403)
