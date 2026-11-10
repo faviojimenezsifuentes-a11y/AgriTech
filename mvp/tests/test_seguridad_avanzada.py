@@ -111,6 +111,23 @@ class AdvancedSecurityTests(unittest.TestCase):
                     production_app.config["SESSION_COOKIE_SAMESITE"], "Lax"
                 )
 
+    def test_browser_permissions_are_restricted_and_private_photos_same_origin(self):
+        response = self.client.get("/login")
+        permissions = response.headers.get("Permissions-Policy", "")
+        self.assertIn("camera=(self)", permissions)
+        self.assertIn("geolocation=(self)", permissions)
+        self.assertIn("microphone=()", permissions)
+        self.assertIn("payment=()", permissions)
+        self.assertIn("usb=()", permissions)
+
+        self.register()
+        # Cabecera defensiva incluso cuando no existe el ID solicitado.
+        photo = self.client.get("/api/hallazgos/id-ficticio/imagen")
+        self.assertEqual(photo.status_code, 404)
+        self.assertEqual(
+            photo.headers.get("Cross-Origin-Resource-Policy"), "same-origin"
+        )
+
     def test_oversized_request_is_rejected(self):
         # Flask rejects an oversized request body before it reaches the handler.
         response = self.client.post(
