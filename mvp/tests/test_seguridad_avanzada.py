@@ -122,12 +122,16 @@ class AdvancedSecurityTests(unittest.TestCase):
         # authenticate first to actually exercise the configured size limit.
         self.assertEqual(response.status_code, 401)
         self.register()
+        self.client.get("/dashboard")
+        with self.client.session_transaction() as session:
+            token = session["csrf_token"]
         response = self.client.post(
             "/api/hallazgos",
             data=b"x" * (16 * 1024 * 1024 + 1),
             content_type="application/json",
+            headers={"X-CSRF-Token": token},
         )
-        self.assertIn(response.status_code, (400, 413))
+        self.assertEqual(response.status_code, 413)
         self.assertEqual(self.app.config["MAX_CONTENT_LENGTH"], 16 * 1024 * 1024)
 
 
